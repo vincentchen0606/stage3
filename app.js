@@ -5,7 +5,7 @@ const multer = require("multer");
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: {
-    fileSize: 5 * 1024 * 1024, // 例如：限制文件大小為 5MB
+    fileSize: 5 * 1024 * 1024, // 限制文件大小為 5MB
   },
 });
 const postController = require("./postController");

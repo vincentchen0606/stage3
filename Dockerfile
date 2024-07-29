@@ -3,7 +3,7 @@ FROM --platform=linux/amd64 node:22.5.1
 # 設置工作目錄
 WORKDIR /usr/src/app
 
-# 複製 package.json 和 package-lock.json (如果存在)
+# 複製 package.json 和 package-lock.json
 COPY package*.json ./
 
 # 安裝專案依賴

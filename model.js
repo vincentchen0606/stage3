@@ -32,15 +32,24 @@ async function createPost(content, imageUrl) {
   return result.insertId;
 }
 
+// async function uploadImageToS3(file) {
+//   const params = {
+//     Bucket: process.env.AWS_BUCKET_NAME,
+//     Key: `${Date.now()}-${file.originalname}`,
+//     Body: file.buffer,
+//   };
+
+//   const result = await s3.upload(params).promise();
+//   return result.Location;
+// }
+
 async function uploadImageToS3(file) {
   const params = {
     Bucket: process.env.AWS_BUCKET_NAME,
     Key: `${Date.now()}-${file.originalname}`,
     Body: file.buffer,
   };
-
   const result = await s3.upload(params).promise();
-  return result.Location;
+  return result.Key; // 返回 Key
 }
-
 module.exports = { getAllPosts, createPost, uploadImageToS3 };
